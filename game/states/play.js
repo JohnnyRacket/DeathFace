@@ -26,18 +26,15 @@ function take_snapshot() {
 
         //setTimeout(postImage(data), 0);
         $.ajax({
+        type: 'POST',
         url:'https://ec2-52-90-67-8.compute-1.amazonaws.com:8080/api/photo',
-        'data': JSON.stringify(data_uri), //{action:'x',params:['a','b','c']}
-        'type': 'POST',
-        'processData': false,
-        'contentType': 'application/json',
-        success:function(data){
+        data: data_uri,
+        dataType: "json",
+        success:function(){
             console.log("success");
-            console.log(data);
         },
-        error: function(data){
+        error: function(){
             console.log("error");
-            console.log(data);
         }
         });
 
