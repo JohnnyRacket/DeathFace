@@ -15,7 +15,7 @@ Preload.prototype = {
     this.load.image('background', 'assets/bgtest.png');
     this.load.image('ground', 'assets/shore.png');
     this.load.image('title', 'assets/title.png');
-    this.load.spritesheet('bird', 'assets/bird.png', 34,24,3);
+    this.load.spritesheet('bird', 'assets/GatorSprite2.png', 182,45,3);
     this.load.spritesheet('pipe', 'assets/rocks.png', 54,320,2);
     this.load.image('startButton', 'assets/start-button.png');
     
