@@ -66,12 +66,14 @@ Bird.prototype.switch = function() {
     if(Bird.prototype.switchDir){
     this.body.velocity.y = 250;
     Bird.prototype.switchDir = false;
+    this.game.add.tween(this).to({angle: 40}, 150).start();
     }else{
       this.body.velocity.y = -250;
     Bird.prototype.switchDir = true;
+    this.game.add.tween(this).to({angle: -40}, 150).start();
     }
     // rotate the bird to -40 degrees
-    this.game.add.tween(this).to({angle: 40}, 150).start();
+    
   }
 };
 
