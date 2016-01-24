@@ -169,42 +169,45 @@ Play.prototype = {
   },
   deathHandler: function(bird, enemy) {
     var that = this;
-    setTimeout(function(){
-  //your code to be executed after 1 seconds
+    if(!this.gameover){
+        this.gameover = true;
+        setTimeout(function(){
+      //your code to be executed after 1 seconds
 
-        if(!that.gameover){
+            
             that.reactionImage = take_snapshot(); 
-        }
-     
+            
+         
 
-        if(enemy instanceof Ground && !that.bird.onGround) {
-            that.groundHitSound.play();
-            that.scoreboard = new Scoreboard(that.game, that.reactionImage);
-            that.game.add.existing(that.scoreboard);
-            that.scoreboard.show(that.score);
-            that.bird.onGround = true;
-        } else if (enemy instanceof Pipe){
-            that.pipeHitSound.play();
-            that.scoreboard = new Scoreboard(that.game, that.reactionImage );
-            that.game.add.existing(that.scoreboard);
-            that.scoreboard.show(that.score);
-            that.bird.onGround = true;
-        }
+            if(enemy instanceof Ground && !that.bird.onGround) {
+                that.groundHitSound.play();
+                that.scoreboard = new Scoreboard(that.game, that.reactionImage);
+                that.game.add.existing(that.scoreboard);
+                that.scoreboard.show(that.score);
+                that.bird.onGround = true;
+            } else if (enemy instanceof Pipe){
+                that.pipeHitSound.play();
+                that.scoreboard = new Scoreboard(that.game, that.reactionImage );
+                that.game.add.existing(that.scoreboard);
+                that.scoreboard.show(that.score);
+                that.bird.onGround = true;
+            }
 
 
 
-     
-     
+         
+         
 
-    if(!that.gameover) {
-        that.gameover = true;
-        that.bird.kill();
-        that.pipes.callAll('stop');
-        that.pipeGenerator.timer.stop();
-        that.ground.stopScroll();
-        that.ground2.stopScroll();
+            if(!that.gameover) {
+                that.gameover = true;
+                that.bird.kill();
+                that.pipes.callAll('stop');
+                that.pipeGenerator.timer.stop();
+                that.ground.stopScroll();
+                that.ground2.stopScroll();
+            }
+        }, 900); 
     }
-    }, 900); 
     
   },
   generatePipes: function() {
