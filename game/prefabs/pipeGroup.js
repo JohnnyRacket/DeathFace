@@ -29,12 +29,12 @@ PipeGroup.prototype.checkWorldBounds = function() {
 };
 
 
-PipeGroup.prototype.reset = function(x, y) {
+PipeGroup.prototype.reset = function(x, y, velocity) {
   this.topPipe.reset(0,0);
   this.bottomPipe.reset(0,440);
   this.x = x;
   this.y = y;
-  this.setAll('body.velocity.x', -200);
+  this.setAll('body.velocity.x', velocity);
   this.hasScored = false;
   this.exists = true;
 };
@@ -43,3 +43,7 @@ PipeGroup.prototype.reset = function(x, y) {
 PipeGroup.prototype.stop = function() {
   this.setAll('body.velocity.x', 0);
 };
+
+PipeGroup.prototype.setVelocity = function(velocity){
+  this.setAll('body.velocity.x', velocity);
+}

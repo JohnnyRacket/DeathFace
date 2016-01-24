@@ -8,7 +8,7 @@ var Scoreboard = function(game) {
   gameover = this.create(this.game.width / 2, 100, 'gameover');
   gameover.anchor.setTo(0.5, 0.5);
 
-  this.scoreboard = this.create(this.game.width / 2, 200, 'scoreboard');
+  this.scoreboard = this.create(this.game.width / 2, 220, 'image-data');
   this.scoreboard.anchor.setTo(0.5, 0.5);
   
   this.scoreText = this.game.add.bitmapText(this.scoreboard.width, 180, 'flappyfont', '', 18);
@@ -18,7 +18,7 @@ var Scoreboard = function(game) {
   this.add(this.bestText);
 
   // add our start button with a callback
-  this.startButton = this.game.add.button(this.game.width/2, 300, 'startButton', this.startClick, this);
+  this.startButton = this.game.add.button(this.game.width/2, 350, 'startButton', this.startClick, this);
   this.startButton.anchor.setTo(0.5,0.5);
 
   this.add(this.startButton);

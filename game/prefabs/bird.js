@@ -42,7 +42,7 @@ Bird.prototype.left = function() {
   if(!!this.alive) {
     this.flapSound.play();
     //cause our bird to "jump" upward
-    this.body.velocity.y = -200;
+    this.body.velocity.y = -250;
     // rotate the bird to -40 degrees
     this.game.add.tween(this).to({angle: -40}, 150).start();
   }
@@ -52,7 +52,7 @@ Bird.prototype.right = function() {
   if(!!this.alive) {
     this.flapSound.play();
     //cause our bird to "jump" upward
-    this.body.velocity.y = 200;
+    this.body.velocity.y = 250;
     // rotate the bird to -40 degrees
     this.game.add.tween(this).to({angle: 40}, 150).start();
   }

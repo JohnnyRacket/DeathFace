@@ -9,10 +9,22 @@ function Play() {
 }
 
 function take_snapshot() {
-          Webcam.snap( function(data_uri) {
-              document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
-          } );
-      }
+    Webcam.snap( function(data_uri) {
+
+        //var reactionImage = new Image(100, 200);
+        //reactionImage.src = data_uri;
+        console.log(data_uri);
+        //console.log("what");
+
+        
+        //document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+        var data = new Image();
+        data.src = data_uri;
+        game.cache.addImage('image-data', data_uri, data);
+
+
+    } );
+}
 
 Play.prototype = {
   create: function() {
@@ -130,26 +142,37 @@ Play.prototype = {
     if(pipeGroup.exists && !pipeGroup.hasScored && pipeGroup.topPipe.world.x <= this.bird.world.x) {
         pipeGroup.hasScored = true;
         this.score++;
+        pipeGroup.setVelocity(-1*(200+ this.score*10));
+        this.ground.autoScroll(-1*(200+ this.score*10),0);
+        this.ground2.autoScroll(200+ this.score*10, 0);
         this.scoreText.setText(this.score.toString());
         this.scoreSound.play();
     }
   },
   deathHandler: function(bird, enemy) {
-    if(enemy instanceof Ground && !this.bird.onGround) {
-        this.groundHitSound.play();
-        this.scoreboard = new Scoreboard(this.game);
-        this.game.add.existing(this.scoreboard);
-        this.scoreboard.show(this.score);
-        this.bird.onGround = true;
-    } else if (enemy instanceof Pipe){
-        this.pipeHitSound.play();
-        this.scoreboard = new Scoreboard(this.game);
-        this.game.add.existing(this.scoreboard);
-        this.scoreboard.show(this.score);
-        this.bird.onGround = true;
-    }
-    
-     take_snapshot(); 
+
+
+
+        this.reactionImage = take_snapshot(); 
+     
+
+        if(enemy instanceof Ground && !this.bird.onGround) {
+            this.groundHitSound.play();
+            this.scoreboard = new Scoreboard(this.game, this.reactionImage);
+            this.game.add.existing(this.scoreboard);
+            this.scoreboard.show(this.score);
+            this.bird.onGround = true;
+        } else if (enemy instanceof Pipe){
+            this.pipeHitSound.play();
+            this.scoreboard = new Scoreboard(this.game, this.reactionImage );
+            this.game.add.existing(this.scoreboard);
+            this.scoreboard.show(this.score);
+            this.bird.onGround = true;
+        }
+
+
+
+     
      
 
     if(!this.gameover) {
@@ -168,7 +191,7 @@ Play.prototype = {
     if(!pipeGroup) {
         pipeGroup = new PipeGroup(this.game, this.pipes);  
     }
-    pipeGroup.reset(this.game.width + 27, pipeY);
+    pipeGroup.reset(this.game.width + 27, pipeY, (-1*(200+ this.score*10)));
     
 
   }
