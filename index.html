@@ -6,6 +6,17 @@
 <head>
   <title>Flappy Bird Reborn</title>
   <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+  <script src="webcam/webcam.js"></script>
+
+  <div id="my_camera" style="width:320px; height:240px;"></div>
+  <div id="my_result"></div>
+  
+  <script language="JavaScript">
+
+    Webcam.attach( '#my_camera' );
+
+  </script>
   
   <script src="game/phaser.js"></script>
 
@@ -31,20 +42,9 @@
 <body>
 
 
-  <script src="webcam/webcam.js"></script>
-  <div id="my_camera" style="width:320px; height:240px;"></div>
-  <div id="my_result"></div>
-  <script language="JavaScript">
-      Webcam.attach( '#my_camera' );
-      
-      function take_snapshot() {
-          Webcam.snap( function(data_uri) {
-              document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
-          } );
-      }
-  </script>
 
-  <a href="javascript:void(take_snapshot())">Take Snapshot</a>
+  
+
     <div id="flappy-bird-reborn"></div>
 
    

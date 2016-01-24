@@ -7,6 +7,13 @@
 
 function Play() {
 }
+
+function take_snapshot() {
+          Webcam.snap( function(data_uri) {
+              document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+          } );
+      }
+
 Play.prototype = {
   create: function() {
     // start the phaser arcade physics engine
@@ -141,6 +148,9 @@ Play.prototype = {
         this.scoreboard.show(this.score);
         this.bird.onGround = true;
     }
+    
+     take_snapshot(); 
+     
 
     if(!this.gameover) {
         this.gameover = true;
