@@ -43,10 +43,6 @@ function take_snapshot() {
     } );
 }
 
-function sleepFor( sleepDuration ){
-    var now = new Date().getTime();
-    while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
-}
 
 Play.prototype = {
   create: function() {
@@ -172,48 +168,43 @@ Play.prototype = {
     }
   },
   deathHandler: function(bird, enemy) {
-
-    var scoring = function(){
-        if(!this.gameover){
-            this.reactionImage = take_snapshot(); 
-        }
-     
-
-        if(enemy instanceof Ground && !this.bird.onGround) {
-            this.groundHitSound.play();
-            this.scoreboard = new Scoreboard(this.game, this.reactionImage);
-            this.game.add.existing(this.scoreboard);
-            this.scoreboard.show(this.score);
-            this.bird.onGround = true;
-        } else if (enemy instanceof Pipe){
-            this.pipeHitSound.play();
-            this.scoreboard = new Scoreboard(this.game, this.reactionImage );
-            this.game.add.existing(this.scoreboard);
-            this.scoreboard.show(this.score);
-            this.bird.onGround = true;
-        }
-
-        if(!this.gameover) {
-        this.gameover = true;
-        this.bird.kill();
-        this.pipes.callAll('stop');
-        this.pipeGenerator.timer.stop();
-        this.ground.stopScroll();
-        this.ground2.stopScroll();
-    }
-
-    }
-
-    var sleepThenAct = function(){ sleepFor(900); console.log("taking Picture!"); };
-    sleepThenAct();
-    scoring();
+    var that = this;
+    setTimeout(function(){
   //your code to be executed after 1 seconds
-    
+
+        if(!that.gameover){
+            that.reactionImage = take_snapshot(); 
+        }
+     
+
+        if(enemy instanceof Ground && !that.bird.onGround) {
+            that.groundHitSound.play();
+            that.scoreboard = new Scoreboard(that.game, that.reactionImage);
+            that.game.add.existing(that.scoreboard);
+            that.scoreboard.show(that.score);
+            that.bird.onGround = true;
+        } else if (enemy instanceof Pipe){
+            that.pipeHitSound.play();
+            that.scoreboard = new Scoreboard(that.game, that.reactionImage );
+            that.game.add.existing(that.scoreboard);
+            that.scoreboard.show(that.score);
+            that.bird.onGround = true;
+        }
+
+
 
      
      
 
-    
+    if(!that.gameover) {
+        that.gameover = true;
+        that.bird.kill();
+        that.pipes.callAll('stop');
+        that.pipeGenerator.timer.stop();
+        that.ground.stopScroll();
+        that.ground2.stopScroll();
+    }
+    }, 900); 
     
   },
   generatePipes: function() {
