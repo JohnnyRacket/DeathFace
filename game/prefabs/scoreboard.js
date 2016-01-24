@@ -48,9 +48,9 @@ Scoreboard.prototype.show = function(score) {
 
   if(score >= 10 && score < 20)
   {
-    coin = this.game.add.sprite(-65 , 7, 'medals', 1);
+   
   } else if(score >= 20) {
-    coin = this.game.add.sprite(-65 , 7, 'medals', 0);
+    
   }
 
   this.game.add.tween(this).to({y: 0}, 1000, Phaser.Easing.Bounce.Out, true);
