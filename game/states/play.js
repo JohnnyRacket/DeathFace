@@ -169,9 +169,10 @@ Play.prototype = {
   },
   deathHandler: function(bird, enemy) {
 
-
-
-        this.reactionImage = take_snapshot(); 
+        console.log("wtf");
+        if(!this.gameover){
+            this.reactionImage = take_snapshot(); 
+        }
      
 
         if(enemy instanceof Ground && !this.bird.onGround) {
