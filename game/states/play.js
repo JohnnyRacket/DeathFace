@@ -212,7 +212,7 @@ Play.prototype = {
                 that.ground.stopScroll();
                 that.ground2.stopScroll();
             }
-        }, 900); 
+        }, 600); 
     }
     
   },
