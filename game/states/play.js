@@ -173,10 +173,7 @@ Play.prototype = {
   },
   deathHandler: function(bird, enemy) {
 
-    var sleepThenAct = function(){ sleepFor(900); console.log("taking Picture!"); };
-    sleepThenAct()
-  //your code to be executed after 1 seconds
-
+    var scoring = function(){
         if(!this.gameover){
             this.reactionImage = take_snapshot(); 
         }
@@ -196,7 +193,12 @@ Play.prototype = {
             this.bird.onGround = true;
         }
 
+    }
 
+    var sleepThenAct = function(){ sleepFor(900); console.log("taking Picture!"); };
+    sleepThenAct().then(scoring();
+  //your code to be executed after 1 seconds
+    
 
      
      
