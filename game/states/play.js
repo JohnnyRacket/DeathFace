@@ -171,6 +171,12 @@ Play.prototype = {
     var that = this;
     if(!this.gameover){
         this.gameover = true;
+        this.gameover = true;
+        this.bird.kill();
+        this.pipes.callAll('stop');
+        this.pipeGenerator.timer.stop();
+        this.ground.stopScroll();
+        this.ground2.stopScroll();
         setTimeout(function(){
       //your code to be executed after 1 seconds
 
