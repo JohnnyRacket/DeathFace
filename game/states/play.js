@@ -97,7 +97,7 @@ Play.prototype = {
 
     // add mouse/touch controls
     this.game.input.onDown.addOnce(this.startGame, this);
-    this.game.input.onDown.add(this.bird.left, this.bird);
+    this.game.input.onDown.add(this.bird.switch, this.bird);
     
 
     // keep the spacebar from propogating up to the browser

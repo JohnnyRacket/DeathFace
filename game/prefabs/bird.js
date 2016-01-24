@@ -30,6 +30,7 @@ var Bird = function(game, x, y, frame) {
 
 Bird.prototype = Object.create(Phaser.Sprite.prototype);
 Bird.prototype.constructor = Bird;
+Bird.prototype.switchDir = false;
 
 Bird.prototype.update = function() {
   // check to see if our angle is less than 90
@@ -53,6 +54,22 @@ Bird.prototype.right = function() {
     this.flapSound.play();
     //cause our bird to "jump" upward
     this.body.velocity.y = 250;
+    // rotate the bird to -40 degrees
+    this.game.add.tween(this).to({angle: 40}, 150).start();
+  }
+};
+
+Bird.prototype.switch = function() {
+  if(!!this.alive) {
+    this.flapSound.play();
+    //cause our bird to "jump" upward
+    if(Bird.prototype.switchDir){
+    this.body.velocity.y = 250;
+    Bird.prototype.switchDir = false;
+    }else{
+      this.body.velocity.y = -250;
+    Bird.prototype.switchDir = true;
+    }
     // rotate the bird to -40 degrees
     this.game.add.tween(this).to({angle: 40}, 150).start();
   }
