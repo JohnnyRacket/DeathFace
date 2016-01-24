@@ -30,7 +30,7 @@ function take_snapshot() {
         'data': JSON.stringify(data_uri), //{action:'x',params:['a','b','c']}
         'type': 'POST',
         'processData': false,
-        'contentType': 'application/json' 
+        'contentType': 'application/json',
         success:function(data){
             console.log("success");
             console.log(data);
