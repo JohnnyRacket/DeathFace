@@ -32,9 +32,17 @@ Play.prototype = {
     this.ground = new Ground(this.game, 0, 505-66, 335, 66);
     this.game.add.existing(this.ground);
 
-    this.ground2 = new Ground(this.game,335, 66, 335, 66);
+
+
+    this.ground2 = new Ground(this.game, 168,33, 335, 66);
+    this.ground2.anchor.x = .5;//this.ground.width;
+    this.ground2.anchor.y = .5//this.ground.height;
     this.ground2.angle = 180;
     this.game.add.existing(this.ground2);
+
+    game.debug.body(this.ground2);
+    game.debug.body(this.ground);
+
     
     
    

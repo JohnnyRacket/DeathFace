@@ -12,9 +12,12 @@ Menu.prototype = {
     
     // add the ground sprite as a tile
     // and start scrolling in the negative x direction
-    this.ground = this.game.add.tileSprite(335, 66, 335,66,'ground');
+    this.ground = this.game.add.tileSprite(0, 0, 335,66,'ground');
+    this.ground.anchor.x = 1;//this.ground.width;
+    this.ground.anchor.y = 1;//this.ground.height;
     this.ground.autoScroll(-200,0);
     this.ground.angle = 180;
+  
 
     this.ground2 = this.game.add.tileSprite(0, 505-66, 335,66,'ground');
     this.ground2.autoScroll(-200,0);
@@ -36,6 +39,7 @@ Menu.prototype = {
     // create the bird sprite 
     // and add it to the title group
     this.bird = this.add.sprite(200,5,'bird');
+    this.bird.scale.set(.3, .3);
     this.titleGroup.add(this.bird);
     
     /** STEP 4 **/

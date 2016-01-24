@@ -11,7 +11,7 @@ var Bird = function(game, x, y, frame) {
   this.name = 'bird';
   this.alive = false;
   this.onGround = false;
-
+  this.scale.set(.4, .5);
 
   // enable physics on the bird
   // and disable gravity on the bird
@@ -19,7 +19,8 @@ var Bird = function(game, x, y, frame) {
   this.game.physics.arcade.enableBody(this);
   this.body.allowGravity = false;
   this.body.collideWorldBounds = true;
-
+  this.body.allowRotation = true;
+  this.body.setSize(100,40,0,0);
 
   this.events.onKilled.add(this.onKilled, this);
 
@@ -33,8 +34,9 @@ Bird.prototype.constructor = Bird;
 Bird.prototype.update = function() {
   // check to see if our angle is less than 90
   // if it is rotate the bird towards the ground by 2.5 degrees
+  game.debug.body(this);
  
-};
+}
 
 Bird.prototype.left = function() {
   if(!!this.alive) {
@@ -44,7 +46,7 @@ Bird.prototype.left = function() {
     // rotate the bird to -40 degrees
     this.game.add.tween(this).to({angle: -40}, 100).start();
   }
-};
+}
 
 Bird.prototype.right = function() {
   if(!!this.alive) {
@@ -63,8 +65,8 @@ Bird.prototype.onKilled = function() {
   this.exists = true;
   this.visible = true;
   this.animations.stop();
-  var duration = 90 / this.y * 300;
-  this.game.add.tween(this).to({angle: 90}, duration).start();
+  //var duration = 90 / this.y * 300;
+  //this.game.add.tween(this).to({angle: 90}, duration).start();
   console.log('killed');
   console.log('alive:', this.alive);
 };
