@@ -21,6 +21,6 @@
                 });
                 
         }
-        $scope.githubAPI();
+       // $scope.githubAPI();
         
     });
