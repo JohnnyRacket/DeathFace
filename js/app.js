@@ -29,9 +29,9 @@
                   url: 'https://api.clarifai.com/v1/tag/',
                   method: 'POST',
                   headers: {
-                   "Authorization: Bearer OovABTFcF52s0fmJHQ1BJZfJ3mJdCl"
+                   "Authorization": "Bearer OovABTFcF52s0fmJHQ1BJZfJ3mJdCl"
                  },
-                 body: "data-urlencode: " + photo_path;
+                 body: {"data-urlencode": + photo_path}
                 }).then(function(response){
                     console.log(response);
                     $scope.claTags = response.data;
