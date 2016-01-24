@@ -20,7 +20,7 @@ var Bird = function(game, x, y, frame) {
   this.body.allowGravity = false;
   this.body.collideWorldBounds = true;
   this.body.allowRotation = true;
-  this.body.setSize(100,40,0,0);
+  this.body.setSize(80,40,0,0);
 
   this.events.onKilled.add(this.onKilled, this);
 
@@ -34,7 +34,7 @@ Bird.prototype.constructor = Bird;
 Bird.prototype.update = function() {
   // check to see if our angle is less than 90
   // if it is rotate the bird towards the ground by 2.5 degrees
-  game.debug.body(this);
+  //game.debug.body(this);
  
 }
 
@@ -65,8 +65,8 @@ Bird.prototype.onKilled = function() {
   this.exists = true;
   this.visible = true;
   this.animations.stop();
-  //var duration = 90 / this.y * 300;
-  //this.game.add.tween(this).to({angle: 90}, duration).start();
+  var duration = 90 / this.y * 100;
+  this.game.add.tween(this).to({angle: 1080}, 10000).start();
   console.log('killed');
   console.log('alive:', this.alive);
 };

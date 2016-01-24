@@ -41,8 +41,8 @@ Play.prototype = {
     this.ground2.autoScroll(200,0);
     this.game.add.existing(this.ground2);
 
-    game.debug.body(this.ground2);
-    game.debug.body(this.ground);
+    //game.debug.body(this.ground2);
+    //game.debug.body(this.ground);
 
     
     
