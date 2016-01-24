@@ -1,7 +1,7 @@
     var reactionApp = angular.module('reactionApp');
 
 
-    secApp.controller('mainController', function($scope, $http) {
+    reactionApp.controller('mainController', function($scope, $http) {
 
         console.log("in projects controller");
         $scope.reactionPhotos;
