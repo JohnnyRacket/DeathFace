@@ -8,7 +8,7 @@
         $scope.githubAPI = function(){
 
               $http({
-                  url: 'https://ec2-52-90-67-8.compute-1.amazonaws.com/api/photo',
+                  url: 'https://ec2-52-90-67-8.compute-1.amazonaws.com:8080/api/photo',
                   method: 'GET',
                   headers: {
                    'Content-Type': 'application/json'
