@@ -31,7 +31,7 @@ function take_snapshot() {
         enctype: "multipart/form-data",
         data: data,
         cache:false,
-        contentType: image/png,
+        contentType: "image/png",
         processData: false,
         success:function(data){
             console.log("success");
