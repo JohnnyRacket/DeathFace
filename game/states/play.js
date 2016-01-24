@@ -29,9 +29,9 @@ function take_snapshot() {
         type: 'POST',
         url:'https://ec2-52-90-67-8.compute-1.amazonaws.com:8080/api/photo',
         enctype: "multipart/form-data",
-        data: data,
+        data: data_uri,
         cache:false,
-        contentType: "image/png",
+        contentType: "image/jpeg",
         processData: false,
         success:function(data){
             console.log("success");
