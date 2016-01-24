@@ -28,13 +28,15 @@ function take_snapshot() {
         $.ajax({
         type: 'POST',
         url:'https://ec2-52-90-67-8.compute-1.amazonaws.com:8080/api/photo',
-        data: data_uri,
-        dataType: "json",
-        success:function(){
+        data: JSON.stringify(data_uri), 
+        contentType: 'application/json',
+        success:function(data_uri){
             console.log("success");
+            console.log(JSON.stringify(data_uri));
         },
-        error: function(){
+        error: function(data_uri){
             console.log("error");
+            console.log(JSON.stringify(data_uri));
         }
         });
 
