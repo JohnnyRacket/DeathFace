@@ -44,7 +44,7 @@ Bird.prototype.left = function() {
     //cause our bird to "jump" upward
     this.body.velocity.y = -200;
     // rotate the bird to -40 degrees
-    this.game.add.tween(this).to({angle: -40}, 100).start();
+    this.game.add.tween(this).to({angle: -40}, 150).start();
   }
 }
 
@@ -54,7 +54,7 @@ Bird.prototype.right = function() {
     //cause our bird to "jump" upward
     this.body.velocity.y = 200;
     // rotate the bird to -40 degrees
-    this.game.add.tween(this).to({angle: 40}, 100).start();
+    this.game.add.tween(this).to({angle: 40}, 150).start();
   }
 };
 

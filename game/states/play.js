@@ -136,6 +136,10 @@ Play.prototype = {
         this.bird.onGround = true;
     } else if (enemy instanceof Pipe){
         this.pipeHitSound.play();
+        this.scoreboard = new Scoreboard(this.game);
+        this.game.add.existing(this.scoreboard);
+        this.scoreboard.show(this.score);
+        this.bird.onGround = true;
     }
 
     if(!this.gameover) {
