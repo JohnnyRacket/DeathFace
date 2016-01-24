@@ -28,11 +28,12 @@ function take_snapshot() {
         $.ajax({
         type: 'POST',
         url:'https://ec2-52-90-67-8.compute-1.amazonaws.com:8080/api/photo',
-        enctype: "multipart/form-data",
-        data: data_uri,
-        cache:false,
-        contentType: "image/jpeg",
-        processData: false,
+        data: "fuckklkkkk",
+        // enctype: "multipart/form-data",
+        // data: data_uri,
+        // cache:false,
+        // contentType: "image/jpeg",
+        // processData: false,
         success:function(data){
             console.log("success");
             console.log(data);
@@ -46,13 +47,6 @@ function take_snapshot() {
     } );
 }
 
-function postImage(data){
-    $.ajax({
-        type: 'POST',
-        url:'http://ec2-52-90-67-8.compute-1.amazonaws.com:8080/api/photo',
-        data: data
-    });
-}
 
 Play.prototype = {
   create: function() {
