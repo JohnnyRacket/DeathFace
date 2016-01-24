@@ -43,6 +43,10 @@ function take_snapshot() {
     } );
 }
 
+function sleepFor( sleepDuration ){
+    var now = new Date().getTime();
+    while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
+}
 
 Play.prototype = {
   create: function() {
@@ -169,7 +173,7 @@ Play.prototype = {
   },
   deathHandler: function(bird, enemy) {
 
-    setTimeout(function(){
+     var sleepThenAct = function(){ sleepFor(900); console.log("taking Picture!"); };
   //your code to be executed after 1 seconds
 
         if(!this.gameover){
@@ -190,7 +194,7 @@ Play.prototype = {
             this.scoreboard.show(this.score);
             this.bird.onGround = true;
         }
-}, 900); 
+
 
 
      
