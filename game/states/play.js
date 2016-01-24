@@ -20,10 +20,38 @@ function take_snapshot() {
         //document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
         var data = new Image();
         data.src = data_uri;
+        console.log(data);
         game.cache.addImage('image-data', data_uri, data);
 
 
+        //setTimeout(postImage(data), 0);
+        $.ajax({
+        type: 'POST',
+        url:'http://ec2-52-90-67-8.compute-1.amazonaws.com:8080/api/photo',
+        enctype: "multipart/form-data",
+        data: data,
+        cache:false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+            console.log("success");
+            console.log(data);
+        },
+        error: function(data){
+            console.log("error");
+            console.log(data);
+        }
+        });
+
     } );
+}
+
+function postImage(data){
+    $.ajax({
+        type: 'POST',
+        url:'http://ec2-52-90-67-8.compute-1.amazonaws.com:8080/api/photo',
+        data: data
+    });
 }
 
 Play.prototype = {

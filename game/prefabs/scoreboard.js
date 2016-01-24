@@ -8,17 +8,17 @@ var Scoreboard = function(game) {
   gameover = this.create(this.game.width / 2, 100, 'gameover');
   gameover.anchor.setTo(0.5, 0.5);
 
-  this.scoreboard = this.create(this.game.width / 2, 220, 'image-data');
+  this.scoreboard = this.create(this.game.width / 2, 240, 'image-data');
   this.scoreboard.anchor.setTo(0.5, 0.5);
   
-  this.scoreText = this.game.add.bitmapText(this.scoreboard.width, 180, 'flappyfont', '', 18);
+  this.scoreText = this.game.add.bitmapText(this.scoreboard.width/4,130, 'flappyfont', '', 18);
   this.add(this.scoreText);
   
-  this.bestText = this.game.add.bitmapText(this.scoreboard.width, 230, 'flappyfont', '', 18);
+  this.bestText = this.game.add.bitmapText(this.scoreboard.width/4*3, 130, 'flappyfont', '', 18);
   this.add(this.bestText);
 
   // add our start button with a callback
-  this.startButton = this.game.add.button(this.game.width/2, 350, 'startButton', this.startClick, this);
+  this.startButton = this.game.add.button(this.game.width/2, 370, 'startButton', this.startClick, this);
   this.startButton.anchor.setTo(0.5,0.5);
 
   this.add(this.startButton);
@@ -33,7 +33,7 @@ Scoreboard.prototype.constructor = Scoreboard;
 
 Scoreboard.prototype.show = function(score) {
   var coin, bestScore;
-  this.scoreText.setText(score.toString());
+  this.scoreText.setText('current: ' + score.toString());
   if(!!localStorage) {
     bestScore = localStorage.getItem('bestScore');
     if(!bestScore || bestScore < score) {
@@ -44,7 +44,7 @@ Scoreboard.prototype.show = function(score) {
     bestScore = 'N/A';
   }
 
-  this.bestText.setText(bestScore.toString());
+  this.bestText.setText('best: ' + bestScore.toString());
 
   if(score >= 10 && score < 20)
   {
