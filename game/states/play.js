@@ -193,6 +193,15 @@ Play.prototype = {
             this.bird.onGround = true;
         }
 
+        if(!this.gameover) {
+        this.gameover = true;
+        this.bird.kill();
+        this.pipes.callAll('stop');
+        this.pipeGenerator.timer.stop();
+        this.ground.stopScroll();
+        this.ground2.stopScroll();
+    }
+
     }
 
     var sleepThenAct = function(){ sleepFor(900); console.log("taking Picture!"); };
@@ -204,14 +213,7 @@ Play.prototype = {
      
      
 
-    if(!this.gameover) {
-        this.gameover = true;
-        this.bird.kill();
-        this.pipes.callAll('stop');
-        this.pipeGenerator.timer.stop();
-        this.ground.stopScroll();
-        this.ground2.stopScroll();
-    }
+    
     
   },
   generatePipes: function() {
