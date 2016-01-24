@@ -38,7 +38,7 @@ Menu.prototype = {
     /** STEP 3 **/
     // create the bird sprite 
     // and add it to the title group
-    this.bird = this.add.sprite(200,5,'bird');
+    this.bird = this.add.sprite(300,5,'bird');
     this.bird.scale.set(.3, .3);
     this.titleGroup.add(this.bird);
     
