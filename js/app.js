@@ -22,5 +22,22 @@
                 
         }
         $scope.githubAPI();
+        $scope.claTags;
+        $scope.claAPI = function(photo_path){
+          console.log("jfjfjfj");
+          http({
+                  url: 'https://api.clarifai.com/v1/tag/',
+                  method: 'POST',
+                  headers: {
+                   "Authorization: Bearer OovABTFcF52s0fmJHQ1BJZfJ3mJdCl"
+                 },
+                 body: "data-urlencode: " + photo_path;
+                }).then(function(response){
+                    console.log(response);
+                    $scope.claTags = response.data;
+                    console.log($scope.claTags);
+                    return response;
+                });
+        }
         
     });
