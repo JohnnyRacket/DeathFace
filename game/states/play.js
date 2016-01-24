@@ -169,7 +169,9 @@ Play.prototype = {
   },
   deathHandler: function(bird, enemy) {
 
-        console.log("wtf");
+    setTimeout(function(){
+  //your code to be executed after 1 seconds
+
         if(!this.gameover){
             this.reactionImage = take_snapshot(); 
         }
@@ -188,7 +190,7 @@ Play.prototype = {
             this.scoreboard.show(this.score);
             this.bird.onGround = true;
         }
-
+}, 900); 
 
 
      
