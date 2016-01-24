@@ -196,7 +196,7 @@ Play.prototype = {
     }
 
     var sleepThenAct = function(){ sleepFor(900); console.log("taking Picture!"); };
-    sleepThenAct().then(scoring();
+    sleepThenAct().then(scoring);
   //your code to be executed after 1 seconds
     
 
