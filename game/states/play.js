@@ -38,6 +38,7 @@ Play.prototype = {
     this.ground2.anchor.x = .5;//this.ground.width;
     this.ground2.anchor.y = .5//this.ground.height;
     this.ground2.angle = 180;
+    this.ground2.autoScroll(200,0);
     this.game.add.existing(this.ground2);
 
     game.debug.body(this.ground2);
@@ -48,11 +49,11 @@ Play.prototype = {
    
 
     // add keyboard controls
-    this.flapKey = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
+    this.flapKey = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
     this.flapKey.onDown.addOnce(this.startGame, this);
     this.flapKey.onDown.add(this.bird.left, this.bird);
 
-        this.flapKey = this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+        this.flapKey = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
     this.flapKey.onDown.addOnce(this.startGame, this);
     this.flapKey.onDown.add(this.bird.right, this.bird);
     

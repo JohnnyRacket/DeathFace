@@ -15,7 +15,7 @@ Menu.prototype = {
     this.ground = this.game.add.tileSprite(0, 0, 335,66,'ground');
     this.ground.anchor.x = 1;//this.ground.width;
     this.ground.anchor.y = 1;//this.ground.height;
-    this.ground.autoScroll(-200,0);
+    this.ground.autoScroll(200,0);
     this.ground.angle = 180;
   
 
