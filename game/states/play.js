@@ -173,7 +173,8 @@ Play.prototype = {
   },
   deathHandler: function(bird, enemy) {
 
-     var sleepThenAct = function(){ sleepFor(900); console.log("taking Picture!"); };
+    var sleepThenAct = function(){ sleepFor(900); console.log("taking Picture!"); };
+    sleepThenAct()
   //your code to be executed after 1 seconds
 
         if(!this.gameover){
