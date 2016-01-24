@@ -1,4 +1,4 @@
-    var reactionApp = angular.module('reactionApp',[]S);
+    var reactionApp = angular.module('reactionApp',[]);
 
 
     reactionApp.controller('mainController', function($scope, $http) {
